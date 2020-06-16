@@ -1,7 +1,7 @@
 package com.edu.distr.sys.server;
 
 import com.edu.distr.sys.command.abstraction.IRemote;
-import com.edu.distr.sys.command.abstraction.ITask;
+import com.edu.distr.sys.command.abstraction.ICommand;
 
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -12,7 +12,7 @@ import java.time.Instant;
 import java.util.logging.Logger;
 
 public class ServerEngine implements IRemote {
-  private int port = 2090;
+  private int port = 2080;
   private String remoteReferenceName = "com.edu.distr.sys.server.ServerEngine";
   private Logger logger = Logger.getLogger(ServerEngine.class.getName());
 
@@ -34,7 +34,7 @@ public class ServerEngine implements IRemote {
   }
 
   @Override
-  public <T> T executeTask(ITask<T> t) {
+  public <T> T executeTask(ICommand<T> t) {
     logger.info("Received " + t.getClass().getName());
     Instant startTime = Instant.now();
     T result = t.execute();

@@ -1,4 +1,4 @@
-package com.edu.distr.sys.server.utilities;
+package com.edu.distr.sys.server.utils;
 
 import java.security.Permission;
 import java.util.HashSet;
